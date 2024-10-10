@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background: #4CAF50; /* Green background */
+    background: #2b2827; /* Green background */
     color: white; /* White text */
     padding: 20px 0; /* Vertical padding */
     text-align: center; /* Centered text */
@@ -42,7 +42,7 @@ input[type="radio"] {
 }
 
 button {
-    background-color: #4CAF50; /* Green button */
+    background-color: #2b2827; /* Green button */
     color: white; /* White text */
     padding: 10px 15px; /* Padding for button */
     border: none; /* Remove border */
@@ -52,7 +52,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #2b2827; /* Darker green on hover */
 }
 
 .result {
@@ -60,7 +60,7 @@ button:hover {
     padding: 15px; /* Padding inside result divs */
     background: #e7f9e7; /* Light green background */
     border-radius: 4px; /* Rounded corners */
-    border: 1px solid #4CAF50; /* Green border */
+    border: 1px solid #2b2827; /* Green border */
 }
 
 h1 {
