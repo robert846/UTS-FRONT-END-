@@ -68,6 +68,79 @@
         .category-links a:hover {
             background-color: #4b0fe4; /* Warna latar saat hover */
         }
+
+        .popup-modal {
+            display: none; /* Sembunyikan pop-up secara default */
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.8); /* Latar belakang gelap */
+        }
+        
+        .popup-content {
+            position: relative;
+            margin: 15% auto; 
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px; /* Lebar maksimal */
+        }
+        
+       
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .slider {
+            position: relative;
+            max-width: 100%; /* Maksimal lebar slider */
+            margin: auto; /* Pusatkan slider */
+        }
+        
+        .slides {
+            display: flex; /* Susun gambar secara horizontal */
+            transition: transform 0.5s ease; /* Transisi halus saat berpindah slide */
+        }
+        
+        .popup-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            flex: 0 0 100%; /* Pastikan setiap gambar memenuhi lebar kontainer */
+        }
+        
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            color: #333;
+        }
+        
+        .prev {
+            left: 10px; /* Posisi tombol kiri */
+        }
+        
+        .next {
+            right: 10px; /* Posisi tombol kanan */
+        }
+        
     </style>
 </head>
 <body>
@@ -77,7 +150,11 @@
         <div class="logo">Fit&Thrive</div>
         <nav>
             <ul>
-                <li><a href="index.html#home">Home</a></li>
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#features">Features</a></li>
+                <li><a href="../index.html#gallery">Gallery</a></li>
+                <li><a href="../index.html#goals">Goals</a></li>
                 <li><a href="login.html" class="btn-login">Login</a></li>
             </ul>
         </nav>
@@ -86,40 +163,40 @@
 
     <!-- Features Section -->
     <section id="features1" class="features-section1">
-        <h2 class="section1-title"align=center>Our Exercise</h2><p></p>
+        <h2 class="section1-title">Our Exercise</h2>
         <div class="features-container">
             <!-- Feature 1 -->
-             <a href="bmicalc/bmi-calculator.html" class="feature">
-                <img src="image/abs.jpg" alt="bmi" class="feature-icon-bmi"> <!-- Ganti dengan URL gambar/icon -->
-                <h3>Abs Exercise </h3>
+            <a href="#" class="feature" data-images='["image/abs.jpg", "image/chest.jpg", "image/arm.jpg"]'>
+                <img src="image/abs.jpg" alt="bmi" class="feature-icon-bmi">
+                <h3>Abs Exercise</h3>
                 <p><strong>These are our choice of the ten best abs exercises.</strong> Try our abs exercise to get instant results and take control of your health today!</p>
             </a>
              <!-- Feature 1 -->
-             <a href="bmicalc/bmi-calculator.html" class="feature">
+             <a href="#" class="feature" data-images='["image/abs.jpg", "image/chest.jpg", "image/arm.jpg"]'>
                 <img src="image/chest.jpg" alt="bmi" class="feature-icon-bmi"> <!-- Ganti dengan URL gambar/icon -->
                 <h3> Chest Exercise </h3>
                 <p><strong>These are our choice of the ten best chest exercises</strong> Try our chest exercise to get instant results and take control of your health today!</p>
             </a>
              <!-- Feature 1 -->
-             <a href="bmicalc/bmi-calculator.html" class="feature">
+             <a href="#" class="feature" data-images='["image/abs.jpg", "image/chest.jpg", "image/arm.jpg"]'>
                 <img src="image/leg.jpeg" alt="bmi" class="feature-icon-bmi"> <!-- Ganti dengan URL gambar/icon -->
                 <h3>Leg Exercise </h3>
                 <p><strong>These are our choice of the ten best leg exercises</strong> Try our leg exercise to get instant results and take control of your health today!</p>
             </a>
              <!-- Feature 1 -->
-             <a href="bmicalc/bmi-calculator.html" class="feature">
+             <a href="#" class="feature" data-images='["image/abs.jpg", "image/chest.jpg", "image/arm.jpg"]'>
                 <img src="image/arm.jpg" alt="bmi" class="feature-icon-bmi"> <!-- Ganti dengan URL gambar/icon -->
                 <h3>Arm Exercise </h3>
                 <p><strong>These are our choice of the ten best arm exercises</strong> Try our arm exercise to get instant results and take control of your health today!</p>
             </a>
              <!-- Feature 1 -->
-             <a href="bmicalc/bmi-calculator.html" class="feature">
+             <a href="#" class="feature" data-images='["image/abs.jpg", "image/chest.jpg", "image/arm.jpg"]'>
                 <img src="image/cardio.jpeg" alt="bmi" class="feature-icon-bmi"> <!-- Ganti dengan URL gambar/icon -->
                 <h3>Cardio Exercise </h3>
                 <p><strong>These are our choice of the ten best cardio exercises</strong> Try our cardio exercise to get instant results and take control of your health today!</p>
             </a>
              <!-- Feature 1 -->
-             <a href="bmicalc/bmi-calculator.html" class="feature">
+             <a href="#" class="feature" data-images='["image/abs.jpg", "image/chest.jpg", "image/arm.jpg"]'>
                 <img src="image/fullbody.jpg" alt="bmi" class="feature-icon-bmi"> <!-- Ganti dengan URL gambar/icon -->
                 <h3>Full Body Exercise </h3>
                 <p><strong>These are our choice of the ten best exercises</strong> Try our exercise to get instant results and take control of your health today!</p>
@@ -157,6 +234,81 @@
         </div>
     </footer>
 
+    <div id="popupModal" class="popup-modal">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div class="slider">
+                <div class="slides">
+                    <img id="popupImage1" src="" alt="Exercise Image" class="popup-image" style="display:none;">
+                    <img id="popupImage2" src="" alt="Exercise Image" class="popup-image" style="display:none;">
+                    <img id="popupImage3" src="" alt="Exercise Image" class="popup-image" style="display:none;">
+                </div>
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
+
+<script>
+    let currentSlide = 0;
+
+const featureLinks = document.querySelectorAll('.feature');
+const popupModal = document.getElementById('popupModal');
+const popupImages = document.querySelectorAll('.popup-image');
+const closeButton = document.querySelector('.close');
+
+featureLinks.forEach((link) => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault(); 
+        
+       
+        const images = JSON.parse(this.getAttribute('data-images'));
+        
+       
+        popupImages.forEach((img, index) => {
+            img.src = images[index] || ""; 
+            img.style.display = images[index] ? 'block' : 'none'; 
+        });
+        
+    
+        popupModal.style.display = 'block';
+        currentSlide = 0; 
+        showSlide(currentSlide);
+    });
+});
+
+
+function showSlide(slideIndex) {
+    for (let i = 0; i < popupImages.length; i++) {
+        popupImages[i].style.display = 'none'; 
+    }
+    popupImages[slideIndex].style.display = 'block'; 
+}
+
+
+function changeSlide(direction) {
+    currentSlide += direction; 
+    if (currentSlide < 0) {
+        currentSlide = popupImages.length - 1; 
+    } else if (currentSlide >= popupImages.length) {
+        currentSlide = 0; 
+    }
+    showSlide(currentSlide); 
+}
+
+
+closeButton.addEventListener('click', function() {
+    popupModal.style.display = 'none'; 
+});
+
+
+window.addEventListener('click', function(event) {
+    if (event.target === popupModal) {
+        popupModal.style.display = 'none';
+    }
+});
+</script>
