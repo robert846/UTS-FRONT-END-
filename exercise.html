@@ -11,136 +11,10 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #b3acac; /* Latar belakang halaman */
+            background-color: #b3acac;
             margin: 0;
             padding: 0;
         }
-
-        .track-everywhere-section {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
-            background-color: #ffffff; /* Background putih */
-            border-radius: 10px; /* Sudut membulat */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan */
-        }
-
-        .main-title {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: black;
-        }
-
-        .main-image {
-            width: 50%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px; /* Spasi di bawah gambar */
-        }
-
-        .description {
-            font-size: 1.2em;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .category-links {
-            margin-top: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center; /* Pusatkan tautan */
-        }
-
-        .category-links a {
-            background-color: #0b0d0f; /* Warna latar tautan */
-            color: white; /* Warna teks tautan */
-            padding: 10px 15px;
-            margin: 5px;
-            border-radius: 5px; /* Sudut membulat pada tautan */
-            text-decoration: none;
-            transition: background-color 0.3s ease; /* Animasi transisi */
-        }
-
-        .category-links a:hover {
-            background-color: #4b0fe4; /* Warna latar saat hover */
-        }
-
-        .popup-modal {
-            display: none; /* Sembunyikan pop-up secara default */
-            position: fixed; 
-            z-index: 1000; 
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto; 
-            background-color: rgba(0, 0, 0, 0.8); /* Latar belakang gelap */
-        }
-        
-        .popup-content {
-            position: relative;
-            margin: 15% auto; 
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 600px; /* Lebar maksimal */
-        }
-        
-       
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .slider {
-            position: relative;
-            max-width: 100%; /* Maksimal lebar slider */
-            margin: auto; /* Pusatkan slider */
-        }
-        
-        .slides {
-            display: flex; /* Susun gambar secara horizontal */
-            transition: transform 0.5s ease; /* Transisi halus saat berpindah slide */
-        }
-        
-        .popup-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            flex: 0 0 100%; /* Pastikan setiap gambar memenuhi lebar kontainer */
-        }
-        
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.7);
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 18px;
-            color: #333;
-        }
-        
-        .prev {
-            left: 10px; /* Posisi tombol kiri */
-        }
-        
-        .next {
-            right: 10px; /* Posisi tombol kanan */
-        }
-        
     </style>
 </head>
 <body>
@@ -163,40 +37,39 @@
 
     <!-- Features Section -->
     <section id="features1" class="features-section1">
-        <h2 class="section1-title">Our Exercise</h2>
         <div class="features-container">
-            <!-- Feature 1 -->
-            <a href="#" class="feature" data-images='["image/abs.jpg", "image/chest.jpg", "image/arm.jpg"]'>
+
+            <a href="#" class="feature" data-images='["image/abs_exercise/crunch.gif", "image/abs_exercise/bicyclecrunch.gif", "image/abs_exercise/pulse.gif"]'>
                 <img src="image/abs.jpg" alt="bmi" class="feature-icon-bmi">
                 <h3>Abs Exercise</h3>
                 <p><strong>These are our choice of the ten best abs exercises.</strong> Try our abs exercise to get instant results and take control of your health today!</p>
             </a>
-             <!-- Feature 1 -->
-             <a href="#" class="feature" data-images='["image/abs.jpg", "image/chest.jpg", "image/arm.jpg"]'>
+
+             <a href="#" class="feature" data-images='["image/chest_exercise/pushup.gif", "image/chest_exercise/dip.gif", "image/chest_exercise/bench.gif"]'>
                 <img src="image/chest.jpg" alt="bmi" class="feature-icon-bmi"> <!-- Ganti dengan URL gambar/icon -->
                 <h3> Chest Exercise </h3>
                 <p><strong>These are our choice of the ten best chest exercises</strong> Try our chest exercise to get instant results and take control of your health today!</p>
             </a>
-             <!-- Feature 1 -->
-             <a href="#" class="feature" data-images='["image/abs.jpg", "image/chest.jpg", "image/arm.jpg"]'>
+
+             <a href="#" class="feature" data-images='["image/leg_exercise/squat.gif", "image/leg_exercise/lunges.gif", "image/leg_exercise/sidelunges.gif"]'>
                 <img src="image/leg.jpeg" alt="bmi" class="feature-icon-bmi"> <!-- Ganti dengan URL gambar/icon -->
                 <h3>Leg Exercise </h3>
                 <p><strong>These are our choice of the ten best leg exercises</strong> Try our leg exercise to get instant results and take control of your health today!</p>
             </a>
-             <!-- Feature 1 -->
-             <a href="#" class="feature" data-images='["image/abs.jpg", "image/chest.jpg", "image/arm.jpg"]'>
+
+             <a href="#" class="feature" data-images='["image/arm_exercise/curl.gif", "image/arm_exercise/curls.gif", "image/arm_exercise/raise.gif"]'>
                 <img src="image/arm.jpg" alt="bmi" class="feature-icon-bmi"> <!-- Ganti dengan URL gambar/icon -->
                 <h3>Arm Exercise </h3>
                 <p><strong>These are our choice of the ten best arm exercises</strong> Try our arm exercise to get instant results and take control of your health today!</p>
             </a>
-             <!-- Feature 1 -->
-             <a href="#" class="feature" data-images='["image/abs.jpg", "image/chest.jpg", "image/arm.jpg"]'>
+
+             <a href="#" class="feature" data-images='["image/cardio_exercise/squatjum.gif", "image/cardio_exercise/jacks.gif", "image/cardio_exercise/jam.gif"]'>
                 <img src="image/cardio.jpeg" alt="bmi" class="feature-icon-bmi"> <!-- Ganti dengan URL gambar/icon -->
                 <h3>Cardio Exercise </h3>
                 <p><strong>These are our choice of the ten best cardio exercises</strong> Try our cardio exercise to get instant results and take control of your health today!</p>
             </a>
-             <!-- Feature 1 -->
-             <a href="#" class="feature" data-images='["image/abs.jpg", "image/chest.jpg", "image/arm.jpg"]'>
+
+             <a href="#" class="feature" data-images='["image/fullbody_exercise/pistol.gif", "image/fullbody_exercise/burpss.gif", "image/fullbody_exercise/all.gif"]'>
                 <img src="image/fullbody.jpg" alt="bmi" class="feature-icon-bmi"> <!-- Ganti dengan URL gambar/icon -->
                 <h3>Full Body Exercise </h3>
                 <p><strong>These are our choice of the ten best exercises</strong> Try our exercise to get instant results and take control of your health today!</p>
@@ -204,18 +77,6 @@
            
             
         </div>
-    </section>
-
-        <!-- Category Links -->
-        <div class="category-links">
-            <a href="#">Body Composition</a>
-            <a href="#">Heart Rate</a>
-            <a href="#">Calories Burned</a>
-            <a href="#">Sleep Monitoring</a>
-            <a href="#">Workout History</a>
-            <a href="#">Nutritional Tracking</a>
-        </div>
-    </section>
 
     <!-- Footer Section (Tetap Sama) -->
     <footer>
@@ -253,62 +114,3 @@
 </body>
 </html>
 
-<script>
-    let currentSlide = 0;
-
-const featureLinks = document.querySelectorAll('.feature');
-const popupModal = document.getElementById('popupModal');
-const popupImages = document.querySelectorAll('.popup-image');
-const closeButton = document.querySelector('.close');
-
-featureLinks.forEach((link) => {
-    link.addEventListener('click', function(event) {
-        event.preventDefault(); 
-        
-       
-        const images = JSON.parse(this.getAttribute('data-images'));
-        
-       
-        popupImages.forEach((img, index) => {
-            img.src = images[index] || ""; 
-            img.style.display = images[index] ? 'block' : 'none'; 
-        });
-        
-    
-        popupModal.style.display = 'block';
-        currentSlide = 0; 
-        showSlide(currentSlide);
-    });
-});
-
-
-function showSlide(slideIndex) {
-    for (let i = 0; i < popupImages.length; i++) {
-        popupImages[i].style.display = 'none'; 
-    }
-    popupImages[slideIndex].style.display = 'block'; 
-}
-
-
-function changeSlide(direction) {
-    currentSlide += direction; 
-    if (currentSlide < 0) {
-        currentSlide = popupImages.length - 1; 
-    } else if (currentSlide >= popupImages.length) {
-        currentSlide = 0; 
-    }
-    showSlide(currentSlide); 
-}
-
-
-closeButton.addEventListener('click', function() {
-    popupModal.style.display = 'none'; 
-});
-
-
-window.addEventListener('click', function(event) {
-    if (event.target === popupModal) {
-        popupModal.style.display = 'none';
-    }
-});
-</script>
