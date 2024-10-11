@@ -4,6 +4,60 @@ body {
     padding: 0;
     background-color: #f4f4f4;
 }
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: flex-end; 
+    background-color: #2b2827; 
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: background 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #533d3d;
+    border-radius: 4px;
+}
+
+
+.container {
+    margin-top: 20px;
+}
+
+.btn-login {
+    padding: 0.5rem 1.5rem;
+    background-color: #7a8599;
+    border-radius: 20px;
+    color: #dfe3e7;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #201d1d;
+  color:#111;
+}
 
 header {
     background: #2b2827; /* Green background */
@@ -32,7 +86,7 @@ select {
     width: 100%; /* Full width */
     padding: 10px; /* Padding inside inputs */
     margin-bottom: 20px; /* Space below inputs */
-    border: 1px solid #ddd; /* Light border */
+    border: 1px solid #ebdcdc; /* Light border */
     border-radius: 4px; /* Rounded corners */
     font-size: 16px; /* Font size */
 }
