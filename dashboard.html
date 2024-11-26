@@ -1,31 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="evoltActiveApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard - Evolt Active</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
-<body>
+<body ng-controller="DashboardController">
     <header>
-        <div class="logo">Evolt Active Dashboard</div>
+        <div class="logo">Fit & Thrive</div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#progress">My Progress</a></li>
                 <li><a href="#mealplan">Meal Plan</a></li>
-                <li><a href="logout.html">Logout</a></li>
+                <li><a href="#" ng-click="logout()">Logout</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="progress" class="progress-section">
+    <section id="progress" class="progress-section" ng-if="isAuthenticated">
         <h2>Your Progress</h2>
         <!-- Placeholder for progress tracking -->
         <div id="progress-chart">
-            <p>Progress tracking chart goes here.</p>
+            <h3>Weekly Goals</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Steps</th>
+                        <th>Calories</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="goal in weeklyGoals">
+                        <td>{{ goal.day }}</td>
+                        <td>{{ goal.steps }}</td>
+                        <td>{{ goal.calories }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Weight Progress</h3>
+            <canvas id="weightChart" width="400" height="200"></canvas>
         </div>
+        <p>Progress tracking chart goes here.</p>
+
+        <!-- New: Daily Progress Table -->
+        <h3>Daily Progress Table</h3>
+        <table border="1" style="width: 100%; text-align: left;">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Calories Burned</th>
+                    <th>Steps</th>
+                    <th>Active Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="data in dailyProgress">
+                    <td>{{ data.date }}</td>
+                    <td>{{ data.calories }}</td>
+                    <td>{{ data.steps }}</td>
+                    <td>{{ data.activeHours }}</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
+
+    <section ng-if="!isAuthenticated">
+        <h2>Access Denied</h2>
+        <p>You must log in to view this page.</p>
+    </section>
+
+    <script>
+        // AngularJS Application
+        var app = angular.module('evoltActiveApp', []);
+
+        // Dashboard Controller
+        app.controller('DashboardController', function($scope, $http) {
+            $scope.isAuthenticated = false;
+
+            // Dummy data for Daily Progress
+            $scope.dailyProgress = [
+                { date: '2024-11-23', calories: 300, steps: 5000, activeHours: 3 },
+                { date: '2024-11-24', calories: 450, steps: 7500, activeHours: 4 },
+                { date: '2024-11-25', calories: 500, steps: 9000, activeHours: 5 }
+            ];
+
+            // Dummy data for Weekly Goals
+            $scope.weeklyGoals = [
+                { day: 'Monday', steps: 5000, calories: 200 },
+                { day: 'Tuesday', steps: 7000, calories: 300 },
+                { day: 'Wednesday', steps: 6000, calories: 250 }
+            ];
+
+            // Check if token exists
+            const token = localStorage.getItem('token');
+            if (token) {
+                // Verify token with backend
+                $http.get('http://localhost:8000/api/protected', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                }).then(function(response) {
+                    $scope.isAuthenticated = true;
+                    console.log('Authenticated:', response.data);
+                }).catch(function(error) {
+                    $scope.isAuthenticated = false;
+                    if (error.status === 401) {
+                        alert('Session expired. Please log in again.');
+                        localStorage.removeItem('token');
+                        window.location.href = 'login.html';
+                    }
+                });
+            } else {
+                window.location.href = 'login.html';
+            }
+
+            // Logout Function
+            $scope.logout = function() {
+                localStorage.removeItem('token');
+                window.location.href = 'login.html';
+            };
+        });
+    </script>
 </body>
 </html>

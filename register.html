@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="fitAndThriveApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Fit&Thrive</title>
     <style>
+        /* CSS sama seperti yang ada di kode sebelumnya */
         * {
             margin: 0;
             padding: 0;
@@ -91,66 +92,64 @@
         .register-container .login-link a:hover {
             text-decoration: underline;
         }
-
-        /* Animasi fade-in */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .register-container {
-            animation: fadeIn 0.8s ease;
-        }
-
-        /* Responsif untuk mobile */
-        @media (max-width: 480px) {
-            .register-container {
-                padding: 20px;
-            }
-
-            .register-container h2 {
-                font-size: 20px;
-            }
-
-            .register-container button {
-                font-size: 16px;
-            }
-        }
     </style>
 </head>
-<body>
+<body ng-controller="RegisterController">
 
     <div class="register-container">
         <h2>Create Your Account</h2>
-        <form action="dashboard.html" method="post">
+        <form ng-submit="registerUser()">
             <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <label for="name">Name</label>
+                <input type="text" id="name" ng-model="user.name" required>
             </div>
             <div class="input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" ng-model="user.email" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" ng-model="user.password" required>
             </div>
             <div class="input-group">
                 <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
+                <input type="password" id="confirm-password" ng-model="user.confirmPassword" required>
             </div>
             <button type="submit">Register</button>
             <div class="login-link">
                 Already have an account? <a href="login.html">Login here</a>
             </div>
         </form>
+        <p style="color: red;" ng-show="errorMessage">{{ errorMessage }}</p>
     </div>
 
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        // AngularJS Module
+        var app = angular.module('fitAndThriveApp', []);
+
+        // Register Controller
+        app.controller('RegisterController', function ($scope, $http) {
+            $scope.user = {};
+            $scope.errorMessage = '';
+
+            $scope.registerUser = function () {
+                if ($scope.user.password !== $scope.user.confirmPassword) {
+                    $scope.errorMessage = 'Passwords do not match!';
+                    return;
+                }
+
+                $http.post('http://localhost:8000/api/register', $scope.user)
+                    .then(function (response) {
+                        alert('Registration successful!');
+                        window.location.href = 'login.html'; // Redirect to login page
+                    })
+                    .catch(function (error) {
+                        $scope.errorMessage = error.data.error || 'Registration failed!';
+                    });
+            };
+        });
+    </script>
 </body>
 </html>
