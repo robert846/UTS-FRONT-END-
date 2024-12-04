@@ -167,6 +167,8 @@
                         // Login berhasil
                         alert('Login Successful!');
                         localStorage.setItem('token', response.data.token); // Simpan token
+                        localStorage.setItem('name', response.data.user.name);
+                        localStorage.setItem('email', response.data.user.email);
                         window.location.href = 'dashboard.html'; // Redirect ke dashboard
                     })
                     .catch(function(error) {
