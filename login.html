@@ -124,6 +124,7 @@
             }
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body ng-controller="LoginController">
 
@@ -165,8 +166,14 @@
                 $http.post('http://localhost:8000/api/login', $scope.credentials)
                     .then(function(response) {
                         // Login berhasil
-                        alert('Login Successful!');
+                        Swal.fire({
+                            title: "Good job!",
+                            text: "Login Successful!",
+                            icon: "success"
+                        });
+
                         localStorage.setItem('token', response.data.token); // Simpan token
+                        localStorage.setItem('id', response.data.user.id); // Simpan token
                         localStorage.setItem('name', response.data.user.name);
                         localStorage.setItem('email', response.data.user.email);
                         window.location.href = 'dashboard.html'; // Redirect ke dashboard
